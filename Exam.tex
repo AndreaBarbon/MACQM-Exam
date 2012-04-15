@@ -1,0 +1,187 @@
+%
+%  Question
+%
+%  Created by Andrea Barbon on 2011-09-30.
+%  Copyright (c) 2011 . All rights reserved.
+%
+\documentclass[]{article}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Uncomment some of the following if you use the features
+%
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+
+% Pacchetti
+\usepackage[T1]{fontenc}
+\usepackage{pvscript}
+\usepackage{amssymb,amsmath}
+\usepackage{epigraph}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+
+% Comandi
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\x}{\otimes}
+\newcommand{\sab}{\sum_{(a)(b)}}
+\newcommand{\e}{\varepsilon}
+\newcommand{\D}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\z}{\bar{z}}
+\newcommand{\dd}{\partial}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\inn}[2]{\la\; #1 \; ,\; #2 \;\ra}
+\newcommand{\gdot}{\dot{\gamma}}
+
+\newcommand{\AND}{\qquad \text{and} \qquad}
+
+\newcommand{\sx}{S_x}
+\newcommand{\sy}{S_y}
+\newcommand{\sz}{S_z}
+\newcommand{\aplh}{(1-\alpha)}
+
+
+% Ambienti
+\newtheorem{defi}{Definition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{ex}{Example}[section]
+\newtheorem{prop}{Proposition}[section]
+
+% Paragrafo
+\setlength{\parindent}{0pt}
+
+
+\title{Final Exam - MACQM}
+\author{ Andrea Barbon - VU 2206157 }
+
+\date{2012-3-9}
+
+\begin{document}
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\maketitle
+
+\section{Problem 1}
+$\dots$
+
+
+
+\section{Problem 2}
+
+\subsection{}\label{2.1}
+
+First of all we will show that $b,c$ and $d$ can all be determined by $a$. 
+\begin{proof}
+	Using the self-adjointness of the operators we have 
+	\begin{eqnarray*}
+		a_s = \inn{\sx e_s}{e_{s-1}} = \inn{e_s}{\sx e_{s-1}} =  \overline{b_{s-1}} \\
+		c_s = \inn{\sy e_s}{e_{s-1}} = \inn{e_s}{\sy e_{s-1}} =  \overline{d_{s-1}}
+	\end{eqnarray*}
+	and from the second commutator relation $[\sy,\;\sz]=i\sx$ we also get
+	\begin{eqnarray*}
+		i (a_{s-1} + b_{s+1}) e_s &=& i\sx e_s = [\sy,\;\sz]e_s = \\
+		&=& sc_se_{s-1}+sd_se_{s+1}-((s-1)c_se_{s-1}+(s+1)d_se_{s+1}) = \\
+		&=& c_se_{s-1}-d_se_{s+1}.
+	\end{eqnarray*}
+	Putting all together we conclude that
+	$$ b_s = \overline{a_{s+1}}, \qquad c_s = ia_s, \qquad d_s = -i\overline{a_{s+1}} $$
+\end{proof}
+
+\subsection{}
+We have $ |a_s|^2 - |a_{s+1}|^2 = s/2 $, and in particular $|a_{L/2}|^2=L/4$
+\begin{proof}
+	From an easy computation it follows that
+	\begin{eqnarray*}
+		i s e_s &=& i\sz e_s = [\sx,\;\sy]e_s = (\sx\sy-\sy\sx)e_s = \\\\
+		&=& \sx(ia_se_{s-1} - i\overline{a_{s+1}}e_{s+1}) - \sy(a_se_{s-1} + \overline{a_{s+1}}e_{s+1}) = \\\\
+		&=& 2i(|a_s|^2-|a_{s+1}|^2)e_s
+	\end{eqnarray*}
+	and using the fact that $a_{L/2+1}=0$ we get also $|a_{L/2}|^2=L/4$.
+\end{proof}
+
+\subsection{}
+The following formula holds $$ |a_s|^2 = \frac{1}{4}(\frac{L}{2}-s+1)(\frac{L}{2}+s)$$
+\begin{proof}
+	$\dots$
+\end{proof}
+
+Hence we only know the complex norm of $a_s,b_S,c_s$ and $d_s$. If we assume that $a_s$ is real and positive we can pick
+$$ a_s = \frac{1}{2} \sqrt{(\frac{L}{2}-s+1)(\frac{L}{2}+s)} $$ 
+and using relations from \ref{2.1} we get also the values for $b_s,c_s,d_s$.
+
+\subsection{}
+We introduce the new couple of operators
+$$ S_+ = \sx+i\sy \AND S_- = \sx-i\sy $$
+and we claim that the following commutator relations hold
+$$ [\sz,\; S_{\pm}] = \pm S_{\pm} $$
+\begin{proof}
+	$\dots$
+\end{proof}
+
+\subsection{}
+The operators $S_-$ and $S_+$ are respectively lowering and rising operators. More precisely $$ S_{\pm} e_s = c_{\pm}^s e_{s\pm1} $$ where the $c_{\pm}^s$ are complex numbers dependent on the sign and $s$.
+\begin{proof}
+	$\dots$
+\end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
