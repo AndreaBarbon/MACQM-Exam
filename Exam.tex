@@ -46,6 +46,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
+\usepackage{enumitem}
 
 
 % Comandi
@@ -144,19 +145,56 @@ $$ a_s = \frac{1}{2} \sqrt{(\frac{L}{2}-s+1)(\frac{L}{2}+s)} $$
 and using relations from \ref{2.1} we get also the values for $b_s,c_s,d_s$.
 
 \subsection{}
-We introduce the new couple of operators
-$$ S_+ = \sx+i\sy \AND S_- = \sx-i\sy $$
+We introduce three new operators
+$$ S_{\pm} = \sx\pm i\sy \AND S^2 = \sx^2+\sy^2+\sz^2 $$
 and we claim that the following commutator relations hold
-$$ [\sz,\; S_{\pm}] = \pm S_{\pm} $$
+$$ [\sz,\; S_{\pm}] = \pm S_{\pm} \AND [S^2,\; S_{\pm}] = 0 $$
 \begin{proof}
 	$\dots$
 \end{proof}
+Let now $V=\{-\frac{L}{2}, -\frac{L}{2}+1, \dots, \frac{L}{2}-1, \frac{L}{2}\}$. The last relation says that if for some $t\in V$ we have $S^2e_t = \lambda e_t$, then we know that $\lambda$ works as an eigenvalue for $S^s$ for all the values of $s\in V$, i.e. more formally 
+\begin{equation}\label{ladder}
+	\exists t\in V \quad \text{s.t.} \quad S^2e_t = \lambda e_t \implies S^2e_s = \lambda e_s, \quad \forall s\in V.
+\end{equation}
 
 \subsection{}
 The operators $S_-$ and $S_+$ are respectively lowering and rising operators. More precisely $$ S_{\pm} e_s = c_{\pm}^s e_{s\pm1} $$ where the $c_{\pm}^s$ are complex numbers dependent on the sign and $s$.
 \begin{proof}
 	$\dots$
 \end{proof}
+Now from the identity $\sx = \frac{1}{2}(S_++S_-)$ we see that
+\begin{equation}\label{eq1}
+	c^s_{+} = b_s = \overline{a_{s+1}} \AND c^s_{-} = a_s
+\end{equation}
+
+\subsection{}\label{square}
+We are now ready to show the eigenvalue of $S^2$. We have $$ S^2e_s = \frac{L}{2}(\frac{L}{2}+1) e_s, \quad \forall s\in V $$
+\begin{proof}
+	Using the identity $\sx^2 + \sy^2 = S_- S_+ - i [\sx,\;\sy] $ we see that $ S^2 e_s = (S_-S_+ + \sz + \sz^2 )e_s $. Now look at this equality for $s=\frac{L}{2}$ and recall that, since $S_+$ is a rising operator, $S_+ e_{\frac{L}{2}} = 0$. We conclude that $S^2e_{\frac{L}{2}} = (\sz+\sz^2)e_{\frac{L}{2}} = \frac{L}{2}(\frac{L}{2}+1)e_{\frac{L}{2}}$. Therefore the claim follows from what we saw in \eqref{ladder}. 
+\end{proof}
+This also tell us that $|Se_s| = \sqrt{\frac{L}{2}(\frac{L}{2}+1)}, \quad \forall s\in V$, or in other words all the possible observed values of the spin lies in a sphere of radious $\sqrt{\frac{L}{2}(\frac{L}{2}+1)}$.
+
+\subsection{Answers}
+\begin{enumerate}[label=(\alph*)]
+	\item The possible values of $\sz$ are its eigenvalues, i.e. every $s \in \{-\frac{L}{2}, -\frac{L}{2}+1, \dots, \frac{L}{2}-1, \frac{L}{2}\}$.
+	\item The commutators of $\sz$ with $\sx$ and $\sy$ are not trivial, hence we cannot measure the values of two or more such operators at the same time. Together with the last remark of the previous section, this means that if we first measure $\sz$, then we cannot have a precise knowledge of the values of $\sx$ and $\sy$, but we know that $Se_s$ lies in a sphere with fixed radious. Hence at first it seems that $\sx$ and $\sy$ can take all the values in a latitude circle of height equal tho the measured value of $\sz$. However the simmetry of the problem implies that we could have chosen another prefferred axis instead of the $z$ one, finding a basis of eigenstates for $\sx$ or $\sy$, and all the results we showed here would have been the same (modulo a cyclic permutation of the indexes). Therefore we conclude that the possible values of $\sx$ and $\sy$ are the same ones as $\sz$.
+	\item Look at paragraph \ref{square}.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
 
