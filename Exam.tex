@@ -55,7 +55,10 @@
 \newcommand{\x}{\otimes}
 \newcommand{\sab}{\sum_{(a)(b)}}
 \newcommand{\e}{\varepsilon}
+
 \newcommand{\D}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\DD}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+
 \newcommand{\z}{\bar{z}}
 \newcommand{\dd}{\partial}
 \newcommand{\la}{\langle}
@@ -193,8 +196,29 @@ The probability is given by the inner product between $\psi$ and $e_{-L/2}$.
 
 
 \section{Problem 4}
-
-
+First we notice that 
+\begin{equation}\label{1}
+	S_{t+s}(q'',q) = S_{t}(q'(q,q''),q) + S_{s}(q'', q'(q,q''))
+\end{equation}
+from which, since $S_{t+s}$ does not depend on $q'$, we deduce
+\begin{equation}\label{2}
+	\D{(S_{t}+S_{s})}{q'} = 0
+\end{equation}
+and taking the derivatices of such identity with respect to $q$ and $q''$ we also get
+\begin{equation}\label{3}
+	\DD{(S_{t}+S_{s})}{q'}{q'}\cdot\D{q'}{q} + \DD{S_t}{q}{q'} = \DD{(S_{t}+S_{s})}{q'}{q'}\cdot\D{q'}{q''} + \DD{S_s}{q'}{q''} = 0
+\end{equation}
+Now we can start our computation
+\begin{eqnarray*}
+	\DD{S_{t+s}}{q}{q''} &=& \DD{S_{t}}{q}{q'}\cdot\D{q'}{q''} + \DD{S_{s}}{q'}{q''}\cdot\D{q'}{q} + \\\\ 
+	&+& \DD{(S_t+S_s)}{q'}{q'}\cdot\D{q'}{q''}\cdot\D{q'}{q} + \D{(S_t+S_s)}{q'}\cdot\DD{q'}{q}{q''} = \qquad \text{using \eqref{2}} \\\\
+	&=& \DD{S_{t}}{q}{q'}\cdot\D{q'}{q''} + \DD{S_{s}}{q'}{q''}\cdot\D{q'}{q} = \qquad \text{using \eqref{3}} \\\\
+	&=& -\left(\DD{S_t}{q'}{q}\cdot\DD{S_s}{q'}{q''} + \DD{S_s}{q'}{q''}\cdot\DD{S_t}{q'}{q}\right) \cdot \left( \DD{(S_{t}+S_{s})}{q'}{q'} \right)^{-1} = \\\\
+	&=& -2 \DD{S_t}{q'}{q}\cdot\DD{S_s}{q'}{q''} \cdot \left( \DD{(S_{t}+S_{s})}{q'}{q'} \right)^{-1}
+\end{eqnarray*}
+which shows that 
+$$ \DD{S_{t+s}}{q}{q''}\cdot\DD{(S_{t}+S_{s})}{q'}{q'} = -2\left(\DD{S_t}{q'}{q}\cdot\DD{S_s}{q'}{q''}\right) $$
+and the required equation follows from the multiplicativity of the determinant.
 
 \section{Problem 5}
 
