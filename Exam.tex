@@ -186,9 +186,6 @@ This also tell us that $|Se_s| = \sqrt{\frac{L}{2}(\frac{L}{2}+1)}, \quad \foral
 
 
 
-
-
-
 \section{Problem 3}
 
 The probability is given by the inner product between $\psi$ and $e_{-L/2}$.
@@ -206,19 +203,20 @@ from which, since $S_{t+s}$ does not depend on $q'$, we deduce
 \end{equation}
 and taking the derivatices of such identity with respect to $q$ and $q''$ we also get
 \begin{equation}\label{3}
-	\DD{(S_{t}+S_{s})}{q'}{q'}\cdot\D{q'}{q} + \DD{S_t}{q}{q'} = \DD{(S_{t}+S_{s})}{q'}{q'}\cdot\D{q'}{q''} + \DD{S_s}{q'}{q''} = 0
+	\DD{(S_{t}+S_{s})}{q'}{q'}\D{q'}{q} + \DD{S_t}{q}{q'} = \DD{(S_{t}+S_{s})}{q'}{q'}\D{q'}{q''} + \DD{S_s}{q'}{q''} = 0
 \end{equation}
-Now we can start our computation
+We can now start our computation
 \begin{eqnarray*}
-	\DD{S_{t+s}}{q}{q''} &=& \DD{S_{t}}{q}{q'}\cdot\D{q'}{q''} + \DD{S_{s}}{q'}{q''}\cdot\D{q'}{q} + \\\\ 
-	&+& \DD{(S_t+S_s)}{q'}{q'}\cdot\D{q'}{q''}\cdot\D{q'}{q} + \D{(S_t+S_s)}{q'}\cdot\DD{q'}{q}{q''} = \qquad \text{using \eqref{2}} \\\\
-	&=& \DD{S_{t}}{q}{q'}\cdot\D{q'}{q''} + \DD{S_{s}}{q'}{q''}\cdot\D{q'}{q} = \qquad \text{using \eqref{3}} \\\\
-	&=& -\left(\DD{S_t}{q'}{q}\cdot\DD{S_s}{q'}{q''} + \DD{S_s}{q'}{q''}\cdot\DD{S_t}{q'}{q}\right) \cdot \left( \DD{(S_{t}+S_{s})}{q'}{q'} \right)^{-1} = \\\\
-	&=& -2 \DD{S_t}{q'}{q}\cdot\DD{S_s}{q'}{q''} \cdot \left( \DD{(S_{t}+S_{s})}{q'}{q'} \right)^{-1}
+	\DD{S_{t+s}}{q}{q''} 
+	&\overset{\eqref{1}}=& \DD{S_{t}}{q}{q'}\D{q'}{q''} + \DD{S_{s}}{q'}{q''}\D{q'}{q} + \DD{(S_t+S_s)}{q'}{q'}\D{q'}{q''}\D{q'}{q} + \D{(S_t+S_s)}{q'}\DD{q'}{q}{q''} \\\\
+	&\overset{\eqref{2}}=& \DD{S_{t}}{q}{q'}\D{q'}{q''} + \DD{S_{s}}{q'}{q''}\D{q'}{q} + \DD{(S_t+S_s)}{q'}{q'}\D{q'}{q''}\D{q'}{q} \\\\
+	&\overset{\eqref{3}}=& -\DD{(S_t+S_s)}{q'}{q'}\D{q'}{q''}\D{q'}{q} -\DD{(S_t+S_s)}{q'}{q'}\D{q'}{q''}\D{q'}{q} + \DD{(S_t+S_s)}{q'}{q'}\D{q'}{q''}\D{q'}{q} \\\\
+	&=& -\DD{(S_t+S_s)}{q'}{q'}\D{q'}{q''}\D{q'}{q} \\\\
+	&\overset{\eqref{3}}=& \DD{S_s}{q'}{q''}\D{q'}{q} \\\\
 \end{eqnarray*}
-which shows that 
-$$ \DD{S_{t+s}}{q}{q''}\cdot\DD{(S_{t}+S_{s})}{q'}{q'} = -2\left(\DD{S_t}{q'}{q}\cdot\DD{S_s}{q'}{q''}\right) $$
-and the required equation follows from the multiplicativity of the determinant.
+multipliying both sides by $\DD{(S_{t}+S_{s})}{q'}{q'}$ and using \eqref{3} again we conclude that
+$$ \DD{S_{t+s}}{q}{q''}\DD{(S_{t}+S_{s})}{q'}{q'} = -\DD{S_t}{q'}{q}\DD{S_s}{q'}{q''} $$
+and the required identity follows from the multiplicativity of the determinant.
 
 \section{Problem 5}
 
